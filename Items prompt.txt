@@ -1,0 +1,24 @@
+Extract the purchased items from the following receipt text.
+The receipts could be for gas, meals, parking, flights, etc., please take in count that it could get some unknow item names.
+If you don’t find an item name, evaluate what the receipt is for and set it as the item name (e.g., parking, groceries, drugstore).
+Return the output as a JSON list where each item has "item", "quantity", and "price", add also the eployee id provided.
+The price is usually preceded by a currency symbol (e.g., $, €, £, ₹). Please remove the character to let the price in numbers.
+When extracting prices, make sure that the sum of the individual item values matches the total amount on the receipt. Consider the tip an taxes as additional items.
+The output should be only the JSON structure, in case you cannot extract the information return an empty JSON.
+
+Emplyee id:
+{employee_id}
+
+Receipt Text:
+{receipt_text}
+
+Example Output:
+[
+    {{"item": "Gladiator Chocolate Smoothie", "quantity": 1, "price": 8.73}},
+    {{"item": "Banana (Add-on)", "quantity": 1, "price": 0.00}},
+    {{"item": "Peanut Butter (Add-on)", "quantity": 1, "price": 0.00}},
+    {{"item": "Energy (Add-on)", "quantity": 1, "price": 1.49}},
+    {{"item": "Fiber (Add-on)", "quantity": 1, "price": 1.49}},
+    {{"item": "Sales Tax", "quantity": 1, "price": 0.97}},
+    {{"item": "Tip", "quantity": 1, "price": 1.27}}
+]
