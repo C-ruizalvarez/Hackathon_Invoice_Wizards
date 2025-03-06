@@ -1,0 +1,2 @@
+Invoices exception 03062025:
+gas-fuel-receipt-sample.jpg: Invalid format name.

@@ -1,5 +1,6 @@
 The company reimbursement policy states:
-- Meals are reimbursable only if they are work-related and under $15.
-- Add-ons to meals are reimbursable if they are part of an approved meal.
+- Meals are reimbursable only if they are work-related and under $20.
+- If meal is with a client, then reimbursable if under $150 per person.
 - Sales tax is reimbursable if the main expense is eligible.
-- Tips are not reimbursable.
+- Alcohol is not reimbursable.
+- Tips are reimbursable if under 20% of the total of the invoice.

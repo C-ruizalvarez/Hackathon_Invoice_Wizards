@@ -1,0 +1,6 @@
+Invoices exception 03062025:
+478636_02202025.jpg: No items extracted. Extracted items The receipt text provided does not contain any information about purchased items, their quantity, or their price. Therefore, it's not possible to extract any data from it. The output is an empty JSON.
+
+[].
+76941321_02102025.png: No items extracted. Extracted items The receipt text provided does not contain enough information to extract the purchased items, their quantity, and their price. Therefore, the output is an empty JSON..
+gas-fuel-receipt-sample.jpg: Invalid format name.

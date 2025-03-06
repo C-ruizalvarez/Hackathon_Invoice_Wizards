@@ -1,8 +1,10 @@
 import openai
 import os
+from openai import OpenAI
 
 # Load OpenAI API Key
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = 'sk-652f9acf82b249829e44ce8431f666ce'
+client = OpenAI(api_key='sk-652f9acf82b249829e44ce8431f666ce', base_url="https://api.deepseek.com")
 
 def load_prompt(file):
     """Load the GPT prompt from an external text file."""
@@ -20,14 +22,14 @@ def extract_items_with_gpt(text,employee_id):
     prompt = prompt.replace("{receipt_text}", text)
 
     # Send the prompt to GPT
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
+    response = client.chat.completions.create(
+        model="deepseek-chat",
         messages=[{"role": "system", "content": "You are an accounting assistant responsible for extracting data from receipts to obtain the list of purchased items, the cost per item, and the total receipt cost"},
                   {"role": "user", "content": prompt}],
         temperature=0
     )
 
-    return response["choices"][0]["message"]["content"]
+    return response.choices[0].message.content
 
 def check_reimbursement(items):
     """Function to check reimbursement using GPT API"""
@@ -38,11 +40,11 @@ def check_reimbursement(items):
     # Insert the actual receipt text and employee id into the prompt
     prompt = reinburs_template.replace("{items}", items)
 
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
+    response = client.chat.completions.create(
+        model="deepseek-chat",
         messages=[{"role": "system", "content": reinburs_policy},
         {"role": "user", "content": prompt}],
         temperature=0.2
     )
 
-    return response["choices"][0]["message"]["content"]
+    return response.choices[0].message.content

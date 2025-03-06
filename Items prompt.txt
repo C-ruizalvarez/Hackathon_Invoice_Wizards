@@ -1,12 +1,16 @@
 Extract the purchased items from the following receipt text.
-The receipts could be for gas, meals, parking, flights, etc., please take in count that it could get some unknow item names.
-If you don’t find an item name, evaluate what the receipt is for and set it as the item name (e.g., parking, groceries, drugstore).
-Return the output as a JSON list where each item has "item", "quantity", and "price", add also the eployee id provided.
-The price is usually preceded by a currency symbol (e.g., $, €, £, ₹). Please remove the character to let the price in numbers.
-When extracting prices, make sure that the sum of the individual item values matches the total amount on the receipt. Consider the tip an taxes as additional items.
-The output should be only the JSON structure, in case you cannot extract the information return an empty JSON.
+Receipts may be for gas, meals, parking, flights, etc. Please take into account that some items may have unknown names.
+If you don’t find an item name, determine what the receipt is for and use that as the item name (e.g., parking, groceries, drugstore).
+Return the output as a JSON list where each item includes the provided Employee ID, "item", "quantity", and "price".
+The Employee ID must be added as the first value for each identified item; it should never be an individual item.
+The price is usually preceded by a currency symbol (e.g., $, €, £, ₹). Please remove the symbol to store the price as a numerical value.
+When extracting prices, ensure that the sum of the individual item values matches the total amount on the receipt. If there is a discrepancy, create an additional item named "Correction" to adjust the total accordingly.
+Consider the tip and taxes as additional items.
+Do not consider the total or subtotal as items. Additionally, if you need to add a "Correction" item with a price of 0, omit that item.
+The output should only be the JSON structure. If you cannot extract the information, return an empty JSON.
+If all the identified items have a price of 0, return an empty JSON.
 
-Emplyee id:
+Employee ID:
 {employee_id}
 
 Receipt Text:
@@ -14,11 +18,11 @@ Receipt Text:
 
 Example Output:
 [
-    {{"item": "Gladiator Chocolate Smoothie", "quantity": 1, "price": 8.73}},
-    {{"item": "Banana (Add-on)", "quantity": 1, "price": 0.00}},
-    {{"item": "Peanut Butter (Add-on)", "quantity": 1, "price": 0.00}},
-    {{"item": "Energy (Add-on)", "quantity": 1, "price": 1.49}},
-    {{"item": "Fiber (Add-on)", "quantity": 1, "price": 1.49}},
-    {{"item": "Sales Tax", "quantity": 1, "price": 0.97}},
-    {{"item": "Tip", "quantity": 1, "price": 1.27}}
+    {{"employee id":"12345","item": "Gladiator Chocolate Smoothie", "quantity": 1, "price": 8.73}},
+    {{"employee id":"12345","item": "Banana (Add-on)", "quantity": 1, "price": 0.00}},
+    {{"employee id":"12345","item": "Peanut Butter (Add-on)", "quantity": 1, "price": 0.00}},
+    {{"employee id":"12345","item": "Energy (Add-on)", "quantity": 1, "price": 1.49}},
+    {{"employee id":"12345","item": "Fiber (Add-on)", "quantity": 1, "price": 1.49}},
+    {{"employee id":"12345","item": "Sales Tax", "quantity": 1, "price": 0.97}},
+    {{"employee id":"12345","item": "Tip", "quantity": 1, "price": 1.27}}
 ]
