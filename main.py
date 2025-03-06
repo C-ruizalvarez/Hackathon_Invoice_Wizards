@@ -31,6 +31,7 @@ def get_invoices(folder_path: str) -> List[Dict]:
         if os.path.isfile(file_path) and os.path.splitext(file)[1].lower() in valid_extensions:
             print(f"Processing {file}...")            
             results = process_invoices(file_path)  #Process file
+            print(results)
             if all(msg not in results for msg in error_msgs):
                 try:
                     json_results = json.loads(results)
@@ -42,7 +43,7 @@ def get_invoices(folder_path: str) -> List[Dict]:
                     file.write(f"Invoices exception {datetime.today().strftime('%m%d%Y')}:\n")
             else:
                 with open(exceptions_files, "a", encoding="utf-8") as file:
-                    file.write(f"{filename}\n") 
+                    file.write(f"{filename}: {results}\n") 
 
     return results  # Return the processed results
 
