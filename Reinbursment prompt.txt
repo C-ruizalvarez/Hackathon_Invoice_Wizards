@@ -1,0 +1,17 @@
+Evaluate the receipt items for reimbursement based on the policy.
+Return the same amount of items, with the flag for elegible and the cause in JSON format.
+The input will be JSON formatted.
+
+Receipt items:
+{items}
+
+Example Output:
+[
+    {{"id": "123","item": "Gladiator Chocolate Smoothie", "quantity": 1, "price": 8.73, "elegible": true, "reason": "Set the cause based on the policy."}},
+    {{"id": "123","item": "Banana (Add-on)", "quantity": 1, "price": 0.00, "elegible": true, "reason": "Set the cause based on the policy."}},
+    {{"id": "123","item": "Peanut Butter (Add-on)", "quantity": 1, "price": 0.00, "elegible": true, "reason": "Set the cause based on the policy."}},
+    {{"id": "123","item": "Energy (Add-on)", "quantity": 1, "price": 1.49, "elegible": true, "reason": "Set the cause based on the policy."}},
+    {{"id": "123","item": "Fiber (Add-on)", "quantity": 1, "price": 1.49, "elegible": true, "reason": "Set the cause based on the policy."}},
+    {{"id": "123","item": "Sales Tax", "quantity": 1, "price": 0.97, "elegible": true, "reason": "Set the cause based on the policy."}},
+    {{"id": "123","item": "Tip", "quantity": 1, "price": 1.27, "elegible": false, "reason": "Set the cause based on the policy."}},
+]
